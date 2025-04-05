@@ -31,6 +31,10 @@ cells.forEach((cell , index) => {
                 alert(board[winningpattern[0]] + " Wins");
             }, 100);
         }
+        else if(!winningpattern && nullcell()){
+            gameOver = true;
+            myturn.innerHTML = "None Wins"
+        }
     });
 });
 function checkwinner(){
@@ -46,6 +50,14 @@ function checkwinner(){
         }
     }
     return null;
+}
+function nullcell(){
+    for(let cell of cells){
+        if(cell.innerHTML === ""){
+            return false;
+        }
+    }
+    return true;
 }
 const reset = document.getElementById("reset");
 reset.addEventListener('click' , function(){
